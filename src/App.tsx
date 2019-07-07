@@ -7,7 +7,7 @@ function splitByLength(str: string, length: number) {
   if (!str || !length || length < 1) {
     return [];
   }
-  var regexPattern = new RegExp(
+  const regexPattern = new RegExp(
     "(?:[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]){1," + length + "}",
     "g"
   );
@@ -68,13 +68,12 @@ const App: React.FC = () => {
 
   return (
     <div
+      {...getRootProps()}
       className={css({
         display: "flex"
       })}
     >
-      <div className={columnCss} {...getRootProps()}>
-        {hexString}
-      </div>
+      <div className={columnCss}>{hexString}</div>
       <div className={columnCss}>{asciiString}</div>
     </div>
   );
